@@ -1,0 +1,29 @@
+/* 全局样式 */
+:root {
+  --color-primary: #5b6af5;
+  --color-primary-hover: #4457f0;
+  --color-bg: rgba(255, 255, 255, 0.92);
+  --color-text: #222;
+  --color-text-muted: #888;
+  --radius-md: 12px;
+  --shadow-panel: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/* 禁用默认拖拽选中 */
+* {
+  -webkit-user-drag: none;
+}

@@ -1,7 +1,86 @@
 # open_assistant
 
+<p align="center">
+  <img src="docs/assets/banner.png" alt="OpenAssistant" width="400" />
+</p>
+
+<p align="center">
+  一个运行在 Windows 桌面的开源 AI 助手，支持 Live2D 卡通形象、流式 AI 对话与电脑自动化操作。
+</p>
+
+<p align="center">
+  <a href="https://github.com/btsd321/open_assistant/releases"><img src="https://img.shields.io/github/v/release/btsd321/open_assistant" alt="Release" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/btsd321/open_assistant" alt="License" /></a>
+  <a href="https://github.com/btsd321/open_assistant/actions"><img src="https://img.shields.io/github/actions/workflow/status/btsd321/open_assistant/ci.yml" alt="CI" /></a>
+</p>
+
+---
+
 ## 项目概述
-一个windows端开源助手，能显示桌面图形动画，后端可使用ai操作电脑执行一些简单的工作流
+
+OpenAssistant 是一个运行在 Windows 桌面的开源 AI 助手：
+
+- 🎭 **Live2D 卡通形象** — 透明无边框窗口，角色常驻桌面
+- 💬 **流式 AI 对话** — 对接 OpenAI / 兼容 API，逐 token 实时输出
+- 🤖 **电脑自动化** — AI 可截图、操控鼠标键盘、管理窗口，完成工作流
+- 🧩 **可扩展** — 基于 Tool Call 机制，轻松添加新技能
+
+## 快速开始
+
+### 环境要求
+
+| 工具 | 版本 |
+|------|------|
+| Windows | 10 / 11 |
+| Node.js | >= 20.x |
+| Python | >= 3.11 |
+
+### 1. 克隆仓库
+
+```bash
+git clone https://github.com/btsd321/open_assistant.git
+cd open_assistant
+```
+
+### 2. 配置后端
+
+```bash
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+
+# 复制环境变量示例并填写 API Key
+copy .env.example .env
+```
+
+编辑 `backend/.env`，填写 `OPENAI_API_KEY`。
+
+### 3. 启动开发模式
+
+```powershell
+# 在项目根目录运行
+.\scripts\dev.ps1
+```
+
+或分别启动：
+
+```bash
+# 终端 1：启动后端
+cd backend && uvicorn app.main:app --reload --port 8765
+
+# 终端 2：启动前端
+cd frontend && npm install && npm run dev
+```
+
+### 4. 打包发布
+
+```powershell
+.\scripts\build.ps1
+# 输出：frontend/dist/*.exe
+```
+
+---
 
 ## 主要依赖的技术栈
 UI/动画	Electron + Vue 3 / React	窗口 UI，透明无边框窗口
